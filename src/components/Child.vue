@@ -1,20 +1,15 @@
 <template>
-  <div class="container">
-    <child></child>
-  </div>
+  <div>111111</div>
 </template>
 
 <script>
-import Child from "../components/Child";
 export default {
   name: "",
   props: {},
   data() {
     return {};
   },
-  components: {
-    Child
-  },
+  components: {},
   methods: {},
   mounted() {},
   watch: {},
@@ -23,7 +18,4 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-.container {
-  background: #f0f2f5;
-}
 </style>

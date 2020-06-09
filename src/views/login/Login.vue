@@ -13,13 +13,15 @@
         <el-input v-model="ruleForm.userName" autocomplete="off" class="el-input"></el-input>
       </el-form-item>
       <el-form-item label="请输入密码" prop="passWord">
-        <el-input
-          type="password"
-          v-model="ruleForm.passWord"
-          autocomplete="off"
-          class="el-input"
-        ></el-input>
-      </el-form-item>  
+        <el-input type="password" v-model="ruleForm.passWord" autocomplete="off" class="el-input"></el-input>
+      </el-form-item>
+      <div class="flex">
+        <el-form-item label="请输入验证码" prop="fromCode">
+          <el-input v-model="ruleForm.fromCode" autocomplete="off" class="el-ipt marg-ris"></el-input>
+        </el-form-item>
+        <span v-html="Code" @click="getCode"></span>
+      </div>
+
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm')" class="submit">立即登录</el-button>
         <el-button type="primary" @click="regForm('ruleForm')" class="reg">立即注册</el-button>
@@ -29,17 +31,21 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Login",
   props: {},
   data() {
     return {
+      Code: "",
+      message: "",
       ruleForm: {
-        uesrName: "",
+        userName: "",
         passWord: "",
+        fromCode: ""
       },
       rules: {
-        uesrName: [
+        userName: [
           {
             required: true,
             message: "用户名不能为空",
@@ -65,6 +71,13 @@ export default {
             trigger: "blur"
           }
         ],
+        fromCode: [
+          {
+            required: true,
+            message: "验证码不能为空",
+            trigger: "blur"
+          }
+        ]
       }
     };
   },
@@ -72,9 +85,35 @@ export default {
   methods: {
     regForm() {
       this.$router.push("/register");
+    },
+    getCode() {
+      axios
+        .get(`/api/captcha`)
+        .then(res => {
+          this.Code = res.data;
+        })
+        .catch(err => {});
+    },
+    submitForm() {
+      axios
+        .post("/api/user/login", {
+          username: this.ruleForm.userName,
+          password: this.ruleForm.passWord,
+          code: this.ruleForm.fromCode
+        })
+        .then(res => {
+          this.$message({ message: res.data.message });
+          let now = Date.now()
+          localStorage.setItem('user',JSON.stringify(res.data.data[0]));
+          localStorage.setItem('time',now);
+          this.$router.push("/");
+        })
+        .catch(err => {});
     }
   },
-  mounted() {},
+  mounted() {
+    this.getCode();
+  },
   watch: {},
   computed: {}
 };
@@ -112,10 +151,22 @@ export default {
 .el-input {
   width: 300px;
 }
+.el-ipt {
+  width: 150px;
+}
 .submit {
   margin-right: 50px;
 }
 .reg {
   margin-left: 50px;
+}
+.flex {
+  display: flex;
+  position: relative;
+}
+span {
+  position: absolute;
+  right: 140px;
+  top: -10px;
 }
 </style>

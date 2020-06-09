@@ -72,17 +72,17 @@ export default {
     regForm() {
       axios
         .post("/api/user/register", {
-          username: this.ruleForm.username,
-          password: this.ruleForm.password
+          username: this.ruleForm.userName,
+          password: this.ruleForm.passWord
         })
         .then(res => {
+          console.log(res.data);
           if (res.data.code === 200) {
             this.$message({
               message: res.data.message,
               type: "success"
             });
-            
-            this.$router.push("/Login");
+            this.$router.push("/login");
           } else {
             this.$message({
               message: res.data.message,
@@ -94,11 +94,9 @@ export default {
           console.log(err);
         });
     },
-    login() {
-      this.$router.push("/Login");
-    }
   },
-  mounted() {},
+  mounted() {
+  },
   watch: {},
   computed: {}
 };
@@ -137,9 +135,10 @@ export default {
   width: 300px;
 }
 .submit {
-  margin-right: 60px;
+  margin-left: 60px;
+  
 }
 .reg {
-  margin-left: 60px;
+  margin-right: 60px;
 }
 </style>
