@@ -5,6 +5,7 @@
 </template>
 
 <style lang="scss">
+@import './style/common';
 * {
   padding: 0;
   margin: 0;

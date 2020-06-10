@@ -1,11 +1,25 @@
 <template>
-  <div class="container">
-    <child></child>
+  <div>
+    <div class="marg-boss">
+      <child-one></child-one>
+    </div>
+    <div class="marg-boss">
+      <child-two></child-two>
+    </div>
+    <div class="marg-boss">
+      <child-three></child-three>
+    </div>
+    <div>
+      <child-four></child-four>
+    </div>
   </div>
 </template>
 
 <script>
-import Child from "../components/Child";
+import ChildOne from "../components/ChildOne";
+import ChildTwo from '../components/ChildTwo';
+import ChildThree from '../components/ChildThree';
+import ChildFour from '../components/ChildFour';
 export default {
   name: "",
   props: {},
@@ -13,7 +27,10 @@ export default {
     return {};
   },
   components: {
-    Child
+    ChildOne,
+    ChildTwo,
+    ChildThree,
+    ChildFour
   },
   methods: {},
   mounted() {},
@@ -23,7 +40,7 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-.container {
-  background: #f0f2f5;
+.childone {
+  margin-bottom: 30px;
 }
 </style>

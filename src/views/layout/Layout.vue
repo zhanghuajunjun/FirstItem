@@ -4,10 +4,12 @@
       <el-header class="el-header">
         <layout-head></layout-head>
       </el-header>
+      <div class="zhanwei1"></div>
       <el-container>
         <el-aside width="180px" class="el-aside">
           <layout-right></layout-right>
         </el-aside>
+        <div class="zhanwei"></div>
         <el-main class="el-main">
           <router-view></router-view>
         </el-main>
@@ -45,16 +47,23 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  z-index: 99999;
 }
 .el-aside {
   background: #344055;
   height: 660px;
   position: fixed;
 }
+.zhanwei {
+  width: 180px;
+}
+.zhanwei1 {
+  height: 60px;
+  width: 100%;
+}
 .el-main {
-  position: absolute;
-  left: 180px;
-  top: 60px;
-  
+  background: #f6f6f6;
+  padding-top: 30px;
 }
 </style>
