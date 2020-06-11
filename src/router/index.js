@@ -22,7 +22,71 @@ const routes = [
         meta: {
           title: '首页'
         }
-      }
+      },
+      {
+        path: '/out',
+        name: 'Out',
+        component: () => import('../views/out/Out'),
+        meta: {
+          title: '退出系统'
+        }
+      },
+      {
+        path: '/paging',
+        name: 'Paging',
+        component: () => import('../views/paging/Paging'),
+        meta: {
+          title: '分页表格'
+        }
+      },
+      {
+        path: '/released',
+        name: 'Released',
+        component: () => import('../views/released/Released'),
+        meta: {
+          title: '已发表'
+        }
+      },
+      {
+        path: '/statistics',
+        name: 'Statistics',
+        component: () => import('../views/Statistics/Statistics'),
+        meta: {
+          title: '统计'
+        }
+      },
+      {
+        path: '/publish',
+        name: 'Publish',
+        component: () => import('../views/publish/Publish'),
+        meta: {
+          title: '发表文章'
+        }
+      },
+      {
+        path: '/tab',
+        name: ' Tab',
+        component: () => import('../views/tab/Tab'),
+        meta: {
+          title: '标签页'
+        }
+      },
+      {
+        path: '/exportEX',
+        name: 'ExportEX',
+        component: () => import('../views/exportEX/ExportEX'),
+        meta: {
+          title: '导出excel'
+        }
+      },
+      {
+        path: '/uploadImg',
+        name: 'UploadImg',
+        component: () => import('../views/uploadImg/UploadImg'),
+        meta: {
+          title: '图片上传'
+        }
+      },
     ]
   },
   {

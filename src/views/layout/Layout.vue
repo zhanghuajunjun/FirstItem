@@ -7,7 +7,7 @@
       <div class="zhanwei1"></div>
       <el-container>
         <el-aside width="180px" class="el-aside">
-          <layout-right></layout-right>
+          <layout-left></layout-left>
         </el-aside>
         <div class="zhanwei"></div>
         <el-main class="el-main">
@@ -20,7 +20,7 @@
 
 <script>
 import LayoutHead from "../../components/LayoutHead";
-import LayoutRight from "../../components/LayoutRight";
+import LayoutLeft from "../../components/LayoutLeft";
 export default {
   name: "Layout",
   props: {},
@@ -29,7 +29,7 @@ export default {
   },
   components: {
     LayoutHead,
-    LayoutRight
+    LayoutLeft
   },
   methods: {},
   mounted() {},

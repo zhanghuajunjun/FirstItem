@@ -79,7 +79,6 @@ export default {
         .get(`/api/homeData`)
         .then(res => {
           this.obj = res.data.data;
-          console.log(this.obj);
         })
         .catch(err => {});
     }

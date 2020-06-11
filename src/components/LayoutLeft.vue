@@ -3,6 +3,7 @@
     <el-row class="tac">
       <el-col :span="12">
         <el-menu
+          router
           default-active="1"
           class="el-menu-vertical-demo"
           background-color="rgb(52,64,85)"
@@ -32,42 +33,47 @@ export default {
         {
           name: "首页",
           log: "el-icon-location",
-          index: "1"
+          index: "/"
         },
         {
-          name: "已发布",
+          name: "分页表格",
           log: "el-icon-menu",
-          index: "2"
-        },
-        {
-          name: "统计",
-          log: "el-icon-menu",
-          index: "3"
-        },
-        {
-          name: "发表文章",
-          log: "el-icon-check",
-          index: "4"
+          index: "/paging"
         },
         {
           name: "标签页",
-          log: "el-icon-setting",
-          index: "5"
+          log: "el-icon-document",
+          index: "/tab"
+        },
+        {
+          name: "图片上传",
+          log: "el-icon-check",
+          index: "/uploadImg"
+        },
+        {
+          name: "已发表",
+          log: "el-icon-shopping-bag-2",
+          index: "/released"
+        },
+        {
+          name: "发布文章",
+          log: "el-icon-message",
+          index: "/publish"
+        },
+        {
+          name: "统计",
+          log: "el-icon-orange",
+          index: "/statistics"
         },
         {
           name: "导出excel",
           log: "el-icon-setting",
-          index: "6"
-        },
-        {
-          name: "图片上传",
-          log: "el-icon-setting",
-          index: "7"
+          index: "/exportEX"
         },
         {
           name: "退出系统",
           log: "el-icon-delete",
-          index: "8"
+          index: "/out"
         }
       ]
     };

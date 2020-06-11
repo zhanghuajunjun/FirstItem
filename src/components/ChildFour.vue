@@ -51,6 +51,6 @@ export default {
 <style scoped lang='scss'>
 .bg-purple {
   background: white;
-  height: 410px;
+  height: 500px;
 }
 </style>

@@ -2,10 +2,14 @@
   <div>
     <el-table ref="filterTable" :data="tableData" style="width: 100%">
       <el-table-column prop="num" label="Order_No" width="280" align="center"></el-table-column>
-      <el-table-column prop="price" label="Price" width="150" align="center">
-
+      <el-table-column prop="price" label="Price" width="130" align="center">
+        <template slot-scope="scope">
+          <div>
+            ￥{{scope.row.price}}
+          </div>
+        </template>
       </el-table-column>
-      <el-table-column prop="status" label="Status" width="120" align="center">
+      <el-table-column prop="status" label="Status" align="center">
         <template slot-scope="scope">
           <div v-if="scope.row.status=='0'">
             <el-tag type="danger">pending</el-tag>
